@@ -1,0 +1,65 @@
+import random
+from arrays import*
+from Lista_paralelas_funciones import * 
+
+#promedio 
+def funcion_promedio(listo:list):
+    suma = 0
+    for i in listo:
+        suma += i
+        promedio = suma / len(listo)
+
+    return promedio
+
+#crear array 
+
+#cargar notas por input  
+
+def ingresar_notas_input(lista:list):
+    bandera = True 
+    for i in range(len(lista)):
+        while True:
+            notas = input("ingrese 3 notas ")
+            
+            if ord(notas) <48 or ord(notas)>57:
+                print("caracter inválido, ingrese un  numero  ")
+                continue
+                        
+            lista[i] = int(notas)
+            break
+
+    return lista 
+
+
+#cargar notas en listas 
+
+
+#generar notas por random
+def notas_creadas(notas:list):
+    
+    for i in range(3):
+        lista_notas = random.randint(1,10)
+        notas[i] = lista_notas
+
+    return notas 
+
+
+#cargar promedios en una lista
+def cargar_promedios_en_lista(lista1:list,lista2:list,lista3:list,lista4:list):
+    lista_final_promedios = [0] * 4
+    lista_final_promedios = [lista1[0],  lista2[1],lista3[2],lista4[3]]
+                             #juan         #Marta   #andrea   # ana
+
+    
+    return lista_final_promedios
+
+
+
+juan = [8.9]
+marta = [7.6]
+andrea = [5.8]
+ana = [3.2]
+
+
+jijo = cargar_promedios_en_lista(juan,marta,andrea,ana)
+print(jijo)
