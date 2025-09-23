@@ -1,6 +1,5 @@
 import random
-from arrays import*
-from Lista_paralelas_funciones import * 
+
 
 #promedio 
 def funcion_promedio(listo:list):
@@ -12,26 +11,37 @@ def funcion_promedio(listo:list):
     return promedio
 
 #crear array 
+def crear_lista(cantidad:int):
+    lista = [0] * cantidad
 
-#cargar notas por input  
+    return lista 
 
-def ingresar_notas_input(lista:list):
-    bandera = True 
-    for i in range(len(lista)):
+def cargo_notas_en(lista):
+    lista_suplente = [0] * 3
+    for i in range(3):
         while True:
-            notas = input("ingrese 3 notas ")
-            
-            if ord(notas) <48 or ord(notas)>57:
-                print("caracter inválido, ingrese un  numero  ")
-                continue
-                        
-            lista[i] = int(notas)
+            notas = input("ingrese 3 notas  ")    
+                                    #lugar 0       caracter1       lugar1     caracter 0 (solo me interesa el 10)
+            if len(notas) == 2 and ord(notas[0])== ord("1") and ord(notas[1])== ord("0"): 
+                lista_suplente[i] = int(notas)  
+    
+            if len(notas)== 1 :
+                if ord(notas) <48 or ord(notas)>57:
+                    print("caracter invalido, ingrese un numero")
+                    continue    
+                else:
+                    lista_suplente[i] = int(notas)
             break
+                    #banderita = True
+    lista = lista_suplente
+                    
+    
+        
 
     return lista 
 
 
-#cargar notas en listas 
+
 
 
 #generar notas por random
@@ -47,19 +57,33 @@ def notas_creadas(notas:list):
 #cargar promedios en una lista
 def cargar_promedios_en_lista(lista1:list,lista2:list,lista3:list,lista4:list):
     lista_final_promedios = [0] * 4
-    lista_final_promedios = [lista1[0],  lista2[1],lista3[2],lista4[3]]
-                             #juan         #Marta   #andrea   # ana
+    
+    lista_final_promedios = [lista1,lista2,lista3,lista4]  # las listas solo tienen un elemento, ubicado en la posicion [0]
+                             #juan     #Marta    #andrea   # ana
 
     
     return lista_final_promedios
 
 
+def imprimir_promedios(nota1,nota2,nota3,nota4,promedio1,promedio2,promedio3,promedio4,lista_alumnos):
+    print(f"Notas de {lista_alumnos[0]}:  {nota1}")
+    print(f"Notas de {lista_alumnos[1]}:  {nota2}")
+    print(f"Notas de {lista_alumnos[2]}:  {nota3}")
+    print(f"Notas de {lista_alumnos[3]}:  {nota4}")
+        
+    print("Promedios:  ")
+    print(f"Promedio de {lista_alumnos[0]}:  {promedio1}")
+    print(f"Promedio de {lista_alumnos[1]}:  {promedio2}")
+    print(f"Promedio de {lista_alumnos[2]}:  {promedio3}")
+    print(f"Promedio de {lista_alumnos[3]}:  {promedio4}")
 
-juan = [8.9]
-marta = [7.6]
-andrea = [5.8]
-ana = [3.2]
 
 
-jijo = cargar_promedios_en_lista(juan,marta,andrea,ana)
-print(jijo)
+
+
+
+def lista_estudiantes():
+    lista = ["Juan","Marta","Andrea","Ana"]
+     #         [0]    [1]     [2]     [3]
+    return lista 
+
