@@ -1,8 +1,8 @@
 #Hoja principal del ejercicio LISTAS PARALELAS 
 
 
-from Lista_paralelas_funciones import *
-from arrays import *
+from lista_paralelas_funciones import *
+
 
 '''Programa de Lista paralelas: 
 
@@ -15,25 +15,49 @@ Crear una función para ingresar las notas de cada estudiante.
 Crear una función que reciba la lista de notas y pueda calcular el promedio de notas de cada estudiante y almacenarlo en una lista de promedio. (El índice de la lista estudiante, corresponde al índice de la lista promedios)
 Imprimir la lista de Estudiantes, sus notas y su promedio de notas. Se debe visualizar la lista de notas con respecto a los estudiantes.'''
 
-#ARRAYS vacios:
-'''
-estudiantes = crear_array(4) #0 = Juan | 1 = Marta | 2 = Andrea | 3 = Ana
-
-
-notas_juan = crear_array(3)
-notas_marta = crear_array(3)
-notas_andrea = crear_array(3)
-notas_ana = crear_array(3) 
-
-
-promedios = crear_array(4)
-estado = crear_array(4)
 
 
 
-#meter esto en una estructura de control asi no jode al resto de funciones y cosas 
-notas_juan_ingresadas = ingresar_notas_input(notas_juan)
-promedio_juan = funcion_promedio(notas_juan_ingresadas)
-print(promedio_juan)
+def programa_de_notas():
 
-'''
+    #listas con alumnos 
+    juan = crear_lista(3) 
+    marta = crear_lista(3)
+    andrea = crear_lista(3)
+    ana = crear_lista(3)
+
+
+    #aca cargo las notas en listas 
+    print("--ingresar notas de Juan-- ")
+    notas_juan = cargo_notas_en(juan)
+
+    print("--ingresar notas de Marta--  ")
+    notas_marta = cargo_notas_en(marta)
+
+    print("--ingresar notas de Andrea-- ")
+    notas_andrea = cargo_notas_en(andrea)
+
+    print("--ingresar notas de Ana--")
+    notas_ana = cargo_notas_en(ana)
+
+    #promedios
+    promedio_juan = funcion_promedio(notas_juan) #Juan [0]
+    promedio_marta = funcion_promedio(notas_marta) # Marta[1]
+    promedio_andrea = funcion_promedio(notas_andrea) # Andrea[2]
+    promedio_ana = funcion_promedio(notas_ana) # Ana[3]
+    
+    lista_de_promedios = cargar_promedios_en_lista(promedio_juan,promedio_marta,promedio_andrea,promedio_ana)
+    
+    
+    estudiantes = lista_estudiantes()
+    print(f"Alumnos: {estudiantes}")
+
+    imprimir_promedios(notas_juan,notas_marta,notas_andrea,notas_ana,promedio_juan,promedio_marta,promedio_andrea,promedio_ana,estudiantes)
+    
+
+
+
+
+asd = programa_de_notas()
+print(asd)
+
